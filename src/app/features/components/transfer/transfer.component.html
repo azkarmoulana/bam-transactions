@@ -1,0 +1,94 @@
+<div class="bg-white rounded-xl">
+  <div class="p-6 rounded-t-xl transfer-header">
+    <i
+      class="mr-4 text-2xl text-white fa fa-credit-card"
+      aria-hidden="true"
+    ></i>
+    <p class="inline-block text-lg font-light text-white">
+      <span class="mr-2 font-bold">Make</span>Transfer
+    </p>
+  </div>
+  <div class="p-6 transfer-form-container">
+    <form [formGroup]="transferForm">
+      <div class="grid grid-cols-1 gap-x-6 gap-y-8">
+        <div class="col-span-6">
+          <label
+            for="fromAccount"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >From Account</label
+          >
+          <div class="mt-2">
+            <div
+              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset"
+            >
+              <input
+                type="text"
+                name="fromAccount"
+                formControlName="fromAccount"
+                id="fromAccount"
+                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                [disabled]="true"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-8">
+        <div class="col-span-6">
+          <label
+            for="toAccount"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >To Account</label
+          >
+          <div class="mt-2">
+            <div
+              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset"
+            >
+              <input
+                type="text"
+                name="toAccount"
+                formControlName="toAccount"
+                id="toAccount"
+                placeholder="type an account name"
+                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+              />
+            </div>
+            <p class="mt-2 text-sm text-pink-600" *ngIf="isToAccountInvalid">
+              Please enter the account details of the sender.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-8">
+        <div class="col-span-6">
+          <label
+            for="amount"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Amount</label
+          >
+          <div class="mt-2">
+            <div
+              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset"
+            >
+              <input
+                type="number"
+                name="amount"
+                formControlName="amount"
+                id="amount"
+                placeholder="specify the amount"
+                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-8">
+        <div class="col-end-6 col">
+          <app-submit-button
+            (submitForm)="onTransferSubmit($event)"
+          ></app-submit-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
